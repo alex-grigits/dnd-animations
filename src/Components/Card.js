@@ -8,7 +8,7 @@ import './Card.css';
 
 const Card = (props) => {
     // Props
-    const { title, id } = props;
+    const { title, id, gameType } = props;
     const [{ x, y }, set] = useSpring(() => ({ x: 0, y: 0 }));
     // State
     const [ drag, setDrag ] = useState(false);
@@ -25,7 +25,7 @@ const Card = (props) => {
         <animated.div {...bind()} style={{ x, y }}>
             <div
                 className = {`card ${ drag ? 'moved' : ''}`}
-            >{ title }</div>
+            >{ title }<br/>{gameType}</div>
         </animated.div>
     );
 };

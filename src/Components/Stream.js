@@ -5,9 +5,11 @@ import React from 'react';
 import './Stream.css';
 
 const Stream = (props) => {
+    const { gameType } = props;
+
     return (
         <div className = 'stream'>
-            Stream
+            Stream {gameType}
         </div>
     );
 };

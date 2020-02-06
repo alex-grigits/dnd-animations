@@ -13,11 +13,11 @@ const data = [
     { id: 3, title: 'Third' },
     { id: 4, title: 'Fourth' },
     { id: 5, title: 'Fifth' }
-]
+];
 
 const Panel = (props) => {
     // Props
-    const { start } = props;
+    const { start, gameType } = props;
     // State
     const [ cards, setCards ] = useState([]);
 
@@ -27,13 +27,16 @@ const Panel = (props) => {
         } else {
             setCards([]);
         }
-        
-    }, [ start ])
+
+    }, [ start ]);
 
     return (
         <div className = 'panel'>
-            <Hand cards = { cards }></Hand>
-            <PreGameBets></PreGameBets>
+            <Hand
+                gameType = { gameType }
+                cards = { cards }
+            />
+            <PreGameBets />
         </div>
     );
 };

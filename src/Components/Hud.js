@@ -5,7 +5,14 @@ import React from 'react';
 import './Hud.css';
 
 const Hud = (props) => {
-    const { start, setGameStart, setGameEnd } = props;
+    const {
+        start,
+        setGameStart,
+        setGameEnd,
+        gameType,
+        setPreGameType,
+        setInGameType
+    } = props;
 
     const _handleClick = () => {
         if (start) {
@@ -13,11 +20,23 @@ const Hud = (props) => {
         } else {
             setGameStart();
         }
-    }
+    };
+
+    const _handleGameType = () => {
+        if (gameType === 'IN_GAME') {
+            setPreGameType();
+        } else {
+            setInGameType();
+        }
+    };
+
     return (
         <div className = 'hud'>
             <button onClick = { _handleClick }>
                 { start ? 'End' : 'Start' }
+            </button>
+            <button onClick = { _handleGameType }>
+                { gameType }
             </button>
         </div>
     );

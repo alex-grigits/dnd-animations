@@ -10,7 +10,7 @@ const config = { mass: 10, tension: 1200, friction: 150 };
 
 const Hand = (props) => {
     // Props
-    const { cards } = props;
+    const { cards, gameType } = props;
 
     const trail = useTrail(cards.length, {
         config,
@@ -26,6 +26,7 @@ const Hand = (props) => {
                     key = { index }
                     style = { { ...rest, transform: x.interpolate((x) => `translate3d(0,${x}px,0)`) } }>
                     <Card
+                        gameType = { gameType }
                         title = { cardList[index].title }
                         key = { cardList[index].id }
                         id = { cardList[index].id }
@@ -34,7 +35,7 @@ const Hand = (props) => {
                 : null;
         });
     };
-    
+
     return (
         <div className = 'hand'>
             {

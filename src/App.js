@@ -9,24 +9,40 @@ import { Hud } from './Components/Hud';
 function App() {
   // State
   const [ start, setStart ] = useState(false);
+  const [ gameType, setGameType ] = useState('IN_GAME');
 
   const setGameStart = () => {
     setStart(true);
-  }
+  };
 
   const setGameEnd = () => {
     setStart(false);
-  }
+  };
+
+    const setInGameType = () => {
+        setGameType('IN_GAME');
+    };
+    const setPreGameType = () => {
+        setGameType('PRE_GAME');
+    };
 
   return (
     <div className = 'main'>
       <Hud
+          gameType = { gameType }
+          setPreGameType = { setPreGameType }
+          setInGameType = { setInGameType }
         start = { start }
         setGameStart = { setGameStart }
         setGameEnd = { setGameEnd }
       />
-      <Stream />
-      <Panel start = { start } />
+      <Stream
+          gameType = { gameType }
+      />
+      <Panel
+          gameType = { gameType }
+          start = { start }
+      />
     </div>
   );
 }

@@ -17,7 +17,7 @@ const data = [
 
 const Panel = (props) => {
     // Props
-    const {start} = props;
+    const { start } = props;
     // State
     const [ cards, setCards ] = useState([]);
 

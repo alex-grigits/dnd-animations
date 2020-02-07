@@ -30,6 +30,8 @@ const Hand = (props) => {
                         title = { cardList[index].title }
                         key = { cardList[index].id }
                         id = { cardList[index].id }
+                        cardsCount = { cardList.length }
+                        index = { index }
                     />
                 </animated.div>
                 : null;

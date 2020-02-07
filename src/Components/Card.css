@@ -1,24 +1,39 @@
+.draggable {
+    width: 100px;
+    height: 136px;
+    position: relative;
+}
+
 .card {
+    box-sizing: border-box;
     width: 100px;
     height: 136px;
     background-color: darkblue;
-    margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: white;
     transform: scale(1);
-    transition: all .3s ease-in;
-}
-
-.card:hover {
+    position: absolute;
+    max-width: 200px;
+    max-height: 270px;
     cursor: move;
-    box-shadow: 0px 0px 10px yellow;
-    transition: all .3s ease-in;
+    will-change: transform, opacity;
+    padding: 12px;
+    transition: box-shadow 0.3s ease-out;
+    border-radius: 10px;
 }
 
-.card.moved {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
-    transform: scale(1.15);
-    transition: all .3s ease-in;
+.card.back {
+    font-size: 14px;
+}
+
+.draggable:hover .card {
+    box-shadow: 0px 0px 20px cyan;
+    transition: box-shadow 0.3s ease-out;
+}
+
+.draggable.moved .card {
+    transition: box-shadow 0.3s ease-out;
 }
